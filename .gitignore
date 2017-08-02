@@ -1,6 +1,7 @@
 # IDE metadata   #
 ##################
 *.iml
+.idea/*
 
 # Build tool output #
 #####################
