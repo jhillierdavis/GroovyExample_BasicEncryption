@@ -1,10 +1,7 @@
 package com.jhdit.security.encrypt
 
 // import org.apache.commons.logging.LogFactory
-// import org.springframework.core.io.ClassPathResource
-// import org.springframework.core.io.Resource
 import spock.lang.Specification
-import spock.lang.*
 
 class FileEncrypterSpec extends Specification {
     private static final String TEST_RESOURCE_DIR = 'src/test/resources/'
@@ -35,7 +32,7 @@ class FileEncrypterSpec extends Specification {
 
     def "round-trip encryption/decryption for binary file"()   {
         setup:
-            File input =  new File(TEST_BINARY_FILE)
+            File input =  new File(TEST_PLAIN_TEXT_FILE)
             Encrypter encrypter = new AesEncrypter("Letme1n!")
             FileEncryptor fileEncrypter = new FileEncryptor(encrypter)
 
@@ -48,6 +45,7 @@ class FileEncrypterSpec extends Specification {
             assert decryptedFile.size() != encryptedFile.size()
             assert decryptedFile.size() == input.size()
             assert input.text == decryptedFile.text
+            assert input.text == 'A file to encrypt!'
     }
 
     def "check decryption fails with different password"()   {
