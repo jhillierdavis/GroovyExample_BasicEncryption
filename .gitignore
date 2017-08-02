@@ -1,12 +1,14 @@
 # IDE metadata   #
 ##################
 *.iml
-.idea/*
+.idea
 
 # Build tool output #
 #####################
-.gradle/*
-build/*
+.gradle
+build
+*.lock
+*.bin
 
 
 # Compiled source #

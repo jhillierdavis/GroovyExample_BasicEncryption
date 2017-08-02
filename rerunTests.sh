@@ -1,0 +1,1 @@
+gradle cleanTest test --info
